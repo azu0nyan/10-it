@@ -1,5 +1,3 @@
-package ru.tutorial.other;
-
 public class V2 {
 
     static final V2 zeroVector = new V2(0, 0);

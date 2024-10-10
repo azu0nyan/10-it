@@ -1,5 +1,3 @@
-import ru.tutorial.other.V2;
-
 import java.awt.*;
 
 public class Planet {
