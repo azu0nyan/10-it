@@ -18,10 +18,6 @@ public class Main {
     <тэг/>
 */
     public static void main(String[] args) throws IOException {
-        Document doc2 = Jsoup.connect("https://www.avito.ru/sankt-peterburg/vakansii/tag/voditel-gazeli").get();
-        System.out.println(doc2.title());
-        System.out.println(doc2.body());
-
         Document doc = Jsoup.connect("https://stackoverflow.com/questions?tab=Bounties").get();
         System.out.println(doc.title());
 
@@ -47,24 +43,4 @@ public class Main {
 
     }
 
-
-    public static void mainn(String[] args) throws IOException {
-        Document doc = Jsoup.connect("https://stackoverflow.com/questions?sort=MostFrequent&edited=true").get();
-
-        System.out.println(doc.title());
-
-        var qs = doc.body().getElementById("questions");
-
-//        System.out.println(qs);
-
-        for (Element child : qs.children()) {
-            var n = child.getElementsByClass("s-post-summary--stats-item-number").first();
-
-            System.out.println(n.text());
-
-            var t = child.getElementsByClass("s-post-summary--content-title").first();
-
-            System.out.println(t.text());
-        }
-    }
 }
