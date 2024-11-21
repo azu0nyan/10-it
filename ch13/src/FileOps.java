@@ -49,6 +49,7 @@ public class FileOps {
     static void writeFilePrintWriter() throws FileNotFoundException {
         System.out.println("Пишем в файл");
         PrintWriter pw = new PrintWriter(new File("some.txt"));
+        //вместо System.out.println используем pw.println
         pw.println("Some text to file");
         pw.close();
     }
