@@ -52,10 +52,14 @@ public class Coding {
      Можно, например, в первые 4 байта записать int - код-во символов в коде(как в задании ip-адрес)
      */
 
-
-//    static void buildTable(String ) {
-//        var
-//    }
+    /*Как построить Частотный словарь в виде массива(вам же нужно сделать Map)*/
+    static int [] buildTable(String s) {
+        int [] freqDict  = new int[Character.MAX_VALUE];
+        for(char c : s.toCharArray()){
+            freqDict[c]++; //ДА, символы можно исппользовать как индексы т.к. char это число от 0 до 65535
+        }
+        return freqDict;
+    }
 
 
     static boolean getBit(int x, int i) {
