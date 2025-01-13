@@ -1,7 +1,7 @@
 public class Main {
     public static void main(String[] args) {
-//        encodingRoutine(new GoodEncoder());
-//        encodingRoutine(new BadEncoder());
+        encodingRoutine(new GoodEncoder());
+        encodingRoutine(new BadEncoder());
 //        encodingRoutine(new HuffmanEncoder());
 //        decodingRoutine(new HuffmanDecoder());
     }
