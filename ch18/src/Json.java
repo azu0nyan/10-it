@@ -8,17 +8,17 @@ public class Json {
         skipWhitespaces();
         i++;
         if(s.charAt(i) == '{') {
-            parseMap(s);
+            return parseMap(s);
         } else if(s.charAt(i) == '[') {
-            parseArray(s);
+            return parseArray(s);
         } else if(Character.isDigit(s.charAt(i)) || s.charAt(i) == '-'){
-            parseNumber(s);
+            return parseNumber(s);
         } else if(s.charAt(i) == 't') {
-            parseTrue(s);
+            return parseTrue(s);
         } else if(s.charAt(i) == 'f') {
-            parseFalse(s);
+            return parseFalse(s);
         } else if(s.charAt(i) == 'n') {
-            parseNull(s);
+            return parseNull(s);
         } else {
             throw new RuntimeException("Unknown token");
         }
