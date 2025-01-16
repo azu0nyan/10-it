@@ -11,6 +11,8 @@ public class Json {
             return parseMap(s);
         } else if(s.charAt(i) == '[') {
             return parseArray(s);
+        } else if(s.charAt(i) == '"'){
+            return parseString(s);
         } else if(Character.isDigit(s.charAt(i)) || s.charAt(i) == '-'){
             return parseNumber(s);
         } else if(s.charAt(i) == 't') {
