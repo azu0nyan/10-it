@@ -1,5 +1,5 @@
 import com.google.gson.Gson;
-import model.Anime;
+import model.Character;
 
 import java.net.URI;
 import java.net.http.HttpClient;
@@ -8,6 +8,8 @@ import java.net.http.HttpResponse;
 
 
 /*
+  gson:2.11.0
+
   Список публичных api
   https://github.com/public-apis/public-apis
 
@@ -17,9 +19,10 @@ import java.net.http.HttpResponse;
 public class Main {
 
     public static void main(String[] args) throws Throwable {
-        var jsonString = downloadFromUrl("https://api.jikan.moe/v4/anime/454/full");
+        var jsonString = downloadFromUrl("https://api.jikan.moe/v4/characters/454/full");
+        System.out.println(jsonString);
         Gson gson = new Gson();
-        var anime = gson.fromJson(jsonString, Anime.class);
+        var anime = gson.fromJson(jsonString, Character.class);
         System.out.println(anime);
     }
 
