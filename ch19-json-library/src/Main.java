@@ -1,6 +1,5 @@
 import com.google.gson.Gson;
 import model.Anime;
-import model.Character;
 
 import java.net.URI;
 import java.net.http.HttpClient;
@@ -8,14 +7,25 @@ import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 
 
-//https://github.com/public-apis/public-apis
+/*
+  Список публичных api
+  https://github.com/public-apis/public-apis
+ */
 public class Main {
+
     public static void main(String[] args) throws Throwable {
+        var jsonString = downloadFromUrl("https://api.jikan.moe/v4/anime/454/full");
+        Gson gson = new Gson();
+        var anime = gson.fromJson(jsonString, Anime.class);
+        System.out.println(anime);
+    }
+
+    static String downloadFromUrl(String url) throws Exception{
         // create a client
         var client = HttpClient.newHttpClient();
 
         // create a request
-        URI uri = URI.create("https://api.jikan.moe/v4/anime/454/full");
+        URI uri = URI.create(url);
         var request =
                 HttpRequest.newBuilder(uri)
                         .build();
@@ -25,15 +35,7 @@ public class Main {
 
         // the response:
         String jsonString = response.body();
-        System.out.println(jsonString);
 
-        System.out.println("---------");
-        Gson gson = new Gson();
-        var anime = gson.fromJson(jsonString, Anime.class);
-        System.out.println(anime);
-
-//        var character = gson.fromJson(jsonString, Character.class);
-//        System.out.println(character);
-
+        return jsonString;
     }
 }
