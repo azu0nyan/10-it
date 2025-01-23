@@ -10,6 +10,9 @@ import java.net.http.HttpResponse;
 /*
   Список публичных api
   https://github.com/public-apis/public-apis
+
+  рекомендую
+  https://pokeapi.co/
  */
 public class Main {
 
