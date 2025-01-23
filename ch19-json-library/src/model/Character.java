@@ -4,7 +4,7 @@ import java.util.Arrays;
 import java.util.List;
 
 public class Character {
-    Data data;
+    public Data data;
 
     @Override
     public String toString() {
@@ -14,11 +14,11 @@ public class Character {
     }
 
 
-    static class Data {
-        int mal_id;
-        String name;
-        String name_kanji;
-        AnimeInner [] anime;
+    public static class Data {
+        public int mal_id;
+        public String name;
+        public String name_kanji;
+        public AnimeInner [] anime;
 
 
         @Override
@@ -31,9 +31,9 @@ public class Character {
                     '}';
         }
 
-        static class AnimeInner{
-            String role;
-            AnimeInnerInner anime;
+        public static class AnimeInner{
+            public String role;
+            public AnimeInnerInner anime;
 //
             @Override
             public String toString() {
@@ -43,10 +43,10 @@ public class Character {
                         '}';
             }
 
-            static class AnimeInnerInner{
-                int mal_id;
-                String url;
-                String title;
+            public static class AnimeInnerInner{
+                public int mal_id;
+                public String url;
+                public String title;
 
                 @Override
                 public String toString() {

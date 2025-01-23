@@ -15,6 +15,11 @@ import java.net.http.HttpResponse;
 
   рекомендую
   https://pokeapi.co/
+
+
+
+  используем
+  https://jikan.moe/
  */
 public class Main {
 
@@ -22,8 +27,12 @@ public class Main {
         var jsonString = downloadFromUrl("https://api.jikan.moe/v4/characters/454/full");
         System.out.println(jsonString);
         Gson gson = new Gson();
-        var anime = gson.fromJson(jsonString, Character.class);
-        System.out.println(anime);
+        Character character = gson.fromJson(jsonString, Character.class);
+        System.out.println(character);
+
+        for(Character.Data.AnimeInner anime: character.data.anime) {
+            System.out.println(anime.anime.url);
+        }
     }
 
     static String downloadFromUrl(String url) throws Exception{
