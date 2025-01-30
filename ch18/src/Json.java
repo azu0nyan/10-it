@@ -28,7 +28,6 @@ public class Json {
 
 
     static Object parseNull(String s) {
-        i += 4;
         if(s.substring(i, i + 4).equals("null")){
             i += 4;
             return null;
