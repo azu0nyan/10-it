@@ -1,6 +1,19 @@
 import  spark.Spark;
 /*
    com.sparkjava.spark-core:2.9.4
+
+   Сделайте http сервер с 4мя РУЧКАМИ(endpoint, route, method, remote procedure)
+
+   /add?p1=x&p2=y
+   /sub?p1=x&p2=y
+   /mull?p1=x&p2=y
+   /div?p1=x&p2=y
+
+   В итоге при запросе
+   http://localhost:4567/add?p1=x&p2=y
+   Пользователь должен увидеть сумму x и y
+   Аналогично с разностью, произведением, частным для другиз трех запросоов
+
  */
 public class Main {
     public static void main(String[] args) {
