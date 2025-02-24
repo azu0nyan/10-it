@@ -7,7 +7,7 @@
         .container{
           display: grid;
           grid-template-columns: 1fr [center] 2fr 1fr;
-          grid-template-rows: 50px 100px [center] 300px 50px 50px;
+          grid-template-rows: 50px 100px [center] auto 50px 50px;
           border: solid;
           border-width: 3px;
         }
@@ -18,40 +18,40 @@
         .item-center {
            grid-column-start: center;
            grid-column-end: 4;
-           grid-row-start: center;
+           grid-row-start: 2;
            grid-row-end: 4;
+        }
+        .item-left {
+           grid-column: 1;
+           grid-row-start: 2;
+           grid-row-end: 5;
+        }
+        .header {
+           grid-column-start: 2;
+           grid-column-end: 3;;
+           grid-row: 1;
         }
     </style>
 </head>
 <body>
 <div class="container">
-    <div class="item-center"><h1><b>Wery important message!!!!</b></h1></div>
-    <div>two</div>
-    <div style="font-size:32px">three</div>
-    <div>four</div>
-    <div>five</div>
-    <div>one</div>
-    <div>two</div>
-    <div>three</div>
-    <div>four</div>
-    <div>five</div>
-    <div>one</div>
-    <div>two</div>
-    <div>three</div>
-    <div>four</div>
-    <div>five</div>
-    <div>one</div>
-    <div>two</div>
-    <div>three</div>
-    <div>four</div>
-    <div>five</div>
+    <div class="item-center">
+        <h1><b>Wery important message!!!!</b></h1>
+        <h1><b>Wery important message!!!!</b></h1>
+        <h1><b>Wery important message!!!!</b></h1>
+        <h1><b>Wery important message!!!!</b></h1>
+        <h1><b>Wery important message!!!!</b></h1>
+    </div>
+    <div class="item-left">
+        <h4>LEFT</h4>
+        <h4>LEFT</h4>
+        <h4>LEFT</h4>
+        <h4>LEFT</h4>
+    </div>
+    <div class="header">
+        <h1>HEADER</h1>
+    </div>
 
-
-    <div>one</div>
-    <div>two</div>
-    <div>three</div>
-    <div>four</div>
-    <div>five</div>
 </div>
 
 </body>
