@@ -29,6 +29,10 @@ public class Main {
         return result;
     }
     public static void main(String[] args) {
+        //Дать доступ к файлам в classpath (папке src)
+        Spark.staticFileLocation("");
+        //Дать дотуп к файлам в рабочей папке
+        Spark.externalStaticFileLocation("");
 
 
         Spark.get("/", (request, response) -> getPage());
