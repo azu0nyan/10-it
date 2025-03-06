@@ -34,7 +34,6 @@ public class Main {
         //Дать дотуп к файлам в рабочей папке
         Spark.externalStaticFileLocation("");
 
-
         Spark.get("/", (request, response) -> getPage());
         System.out.println("Serving on http://localhost:" + Spark.port());
     }
