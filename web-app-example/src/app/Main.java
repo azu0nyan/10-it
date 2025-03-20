@@ -1,6 +1,9 @@
 package app;
 
 import db.DB;
+import server.AuthRoute;
+import server.Login;
+import server.PageMaker;
 import server.Register;
 import spark.Spark;
 
@@ -12,17 +15,18 @@ public class Main {
         DB.init();
 
         Spark.port(4567);
-        Spark.staticFileLocation("/html");
+
+
+//        Spark.get("/", (req, res) -> );
+        Spark.get("/", AuthRoute.authRoute(PageMaker::makeMainPageForUser, "/anonMain", 200));
+        Spark.get("/anonMain", PageMaker::makeMainPage);
+        Spark.get("/register", PageMaker::makeRegistrationPage);
+        Spark.get("/login", PageMaker::makeLoginPage);
+
+        Spark.get("/hidden", AuthRoute.authRoute(PageMaker::makeHiddenPage));
 
         Spark.post("/submitRegister", Register::registerUser);
-
-
-        Spark.get("/login", (req, res) -> "<h1>login page<h2>");
-
-        Spark.get("/important-data", (req, res) -> {
-                if(req.cookie("token").equals("Я залогинился мамой клянусь"))return "data";
-                else return "No data";
-        });
+        Spark.post("/submitLogin", Login::loginUser);
 
     }
 

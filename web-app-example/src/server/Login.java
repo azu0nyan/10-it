@@ -15,9 +15,8 @@ public class Login {
 
             var inDb = HumanDAO.selectByLogin(login, DB.getConnection());
             if(inDb != null && inDb.password.equals(password)) {
-                response.cookie("token", "Я залогинился в 8 и буду работать до 12, я вася");
                 response.cookie("username", inDb.login);
-                response.redirect("/important-data");
+                response.redirect("/hidden");
             } else
               response.redirect("/login");
             return "";
