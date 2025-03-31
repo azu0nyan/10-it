@@ -15,6 +15,7 @@ public class PageMaker {
     static String registrationForm;
     static String mainPageContent;
     static String hiddenPageContent;
+    static String searchUsersContent;
 
 
     static {
@@ -26,6 +27,7 @@ public class PageMaker {
             registrationForm = Files.readAllLines(Path.of("html/registrationForm.html")).stream().reduce((x, y) -> x + y).get();
             mainPageContent = Files.readAllLines(Path.of("html/mainContent.html")).stream().reduce((x, y) -> x + y).get();
             hiddenPageContent = Files.readAllLines(Path.of("html/hiddenPage.html")).stream().reduce((x, y) -> x + y).get();
+            searchUsersContent = Files.readAllLines(Path.of("html/searchUsers.html")).stream().reduce((x, y) -> x + y).get();
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
@@ -49,6 +51,10 @@ public class PageMaker {
 
     public static String makeHiddenPage(Request request, Response response) {
         return makePage(hiddenPageContent, userMenu);
+    }
+
+    public static String makeSearchUsersPage(Request request, Response response) {
+        return makePage(searchUsersContent, userMenu);
     }
 
 

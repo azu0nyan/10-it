@@ -3,6 +3,7 @@ package db;
 import db.model.Human;
 
 import java.sql.Connection;
+import java.util.List;
 
 public class HumanDAO {
     public static int insertNew(Human human, Connection conn) throws Exception {
@@ -26,5 +27,21 @@ public class HumanDAO {
             return human;
         }
         return null;
+    }
+
+    public static List<Human> findLikeLogin(String login, Connection conn) throws Exception {
+        var stmt = conn.prepareStatement("SELECT * FROM HUMAN WHERE login LIKE ?;");
+        stmt.setString(1, "%"+login+"%");
+        var rs = stmt.executeQuery();
+        var result = new java.util.ArrayList<Human>();
+        while (rs.next()) {
+            var human = new Human(
+                    rs.getInt("id"),
+                    rs.getString("login"),
+                    rs.getString("password")
+            );
+            result.add(human);
+        }
+        return result;
     }
 }
