@@ -8,7 +8,6 @@ public class Main {
 
 
     public static void main(String[] args) throws Throwable {
-
 //        DB.init();
         Spark.externalStaticFileLocation("static");
         Spark.port(4567);

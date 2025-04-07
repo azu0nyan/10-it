@@ -1,0 +1,31 @@
+.container {
+  display: grid;
+  grid-template-columns: [left] 200px [center] auto [right] 100px;
+  grid-template-rows: [header] 100px [info] 50px [main] auto [footer] 100px;
+  grid-gap: 10px;
+}
+
+.info {
+  grid-column: center;
+  grid-row: info;
+}
+
+.navigation {
+  grid-column: left;
+  grid-row: main;
+}
+
+.footer {
+  grid-column: center;
+  grid-row: footer;
+}
+
+.header {
+  grid-column: center;
+  grid-row: header;
+}
+
+.content {
+  grid-column: center;
+  grid-row: main;
+}
